@@ -110,10 +110,7 @@ func getOr(vs Gettable, what string, def string) string {
 
 func isDomainValid(domain string) bool {
 	_, err := net.LookupIP(domain)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 func getDomainVerificationUrl(domain string, code string) string {
